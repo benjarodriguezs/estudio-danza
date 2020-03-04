@@ -1,0 +1,13 @@
+<!-- TABS -->
+<div class="row tabs m-0">
+  <div
+    *ngFor="let tab of tabs; let i = index;"
+    [ngClass]="{
+      'active': tab.selectedTab,
+      'border-bottom-effect cursor-pointer': !tab.selectedTab
+    }"
+    (click)="navigateTo(tab, i)"
+    class="col px-1 tab rounded-top text-center">
+    <span class="h6 m-0 text-truncate">{{tab.name}}</span>
+  </div>
+</div>
