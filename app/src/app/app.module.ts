@@ -10,7 +10,6 @@ import { TabsModule } from './shared/tabs/tabs.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { AdminComponent } from './modules/admin/admin.component';
-import { AlumnosComponent } from './modules/alumnos/alumnos.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 
 
@@ -19,7 +18,6 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
     AppComponent,
     FooterComponent,
     AdminComponent,
-    AlumnosComponent,
     SidebarComponent,
   ],
   imports: [

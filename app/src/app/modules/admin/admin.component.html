@@ -1,9 +1,12 @@
-<div class="row h-100 m-0">
-  <div class="width-sidebar bg-primary-gradient p-0">
-    <app-sidebar (addTab)="addTab($event)"></app-sidebar>
+<div class="row h-100 justify-content-between m-0">
+  <div class="bg-primary-gradient m-0 p-0">
+    <app-sidebar (addtab)="addTab($event)"></app-sidebar>
   </div>
-  <div class="col p-0">
+  <div class="move m-0 p-0">
     <app-tabs [tabs]="tabs"></app-tabs>
     <router-outlet></router-outlet>
+  </div>
+  <div class="mx-auto">
+    <app-footer></app-footer>
   </div>
 </div>

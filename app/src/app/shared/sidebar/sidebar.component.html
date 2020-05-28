@@ -1,1 +1,8 @@
-<p>sidebar works!</p>
+<div id="mySidenav" class="sidenav-container">
+  <div class="sidenav">
+  <!-- (click)="onEvent(event)" -->  
+    <a class="sidenav-option border-bottom border-dark" (click)="navigateTo('CONSULTAS', '/consultas')">Consultas</a>
+    <a class="sidenav-option   border-bottom border-dark" (click)="navigateTo('PAGOS', '/pagos')">Pagos</a>
+    <a class="sidenav-option border-bottom border-dark" (click)="navigateTo('ADMINISTRACION', '/administracion')">Administracion</a>
+  </div>
+</div>
