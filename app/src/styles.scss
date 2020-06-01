@@ -2,3 +2,10 @@
   flex: 0 0 40px;
   max-width: 40px;
 }
+
+$primary: rgb(245, 89, 206);
+
+$theme-colors: (
+  primary: $primary,
+  light: white
+);
