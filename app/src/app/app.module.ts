@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 // MODULES
 import { AppRoutingModule } from './app-routing.module';
@@ -25,6 +27,8 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
     AppRoutingModule,
     FormsModule,
     TabsModule,
+    ModalModule.forRoot(),
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

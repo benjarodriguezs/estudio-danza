@@ -1,9 +1,9 @@
 <div class="vh-100">
   <div class="container-12 container-stats h-100">
     <div class="row justify-content-between mb-2">
-      <div class="col-3 m-0 mt-3 ml-3">
+      <div class="col-3  m-0 mt-3 ml-3">
         <input
-          class="form-control form-control-sm m-0"
+          class="form-control m-0"
           id="filtro"
           placeholder="nombre, apellido, email  etc..."
           type="text">
@@ -25,23 +25,32 @@
         <form>
           <div class="form-row align-items-center">
             <div class="custom-control custom-checkbox mr-sm-2">
-              <input type="checkbox" class="custom-control-input" id="pagados">
+              <input type="checkbox" class="custom-control-input" id="pagados" checked>
               <label class="custom-control-label" for="pagados">Pagados</label>
             </div>
             <div class="custom-control custom-checkbox mr-sm-2">
-              <input type="checkbox" class="custom-control-input" id="impagos">
+              <input type="checkbox" class="custom-control-input" id="impagos" checked>
               <label class="custom-control-label" for="impagos">Impagos</label>
             </div>
           </div>
         </form>
       </div>
       <div class="col-2">
-        <button type="button" class="btn btn-primary mt-3">
-          <i class="fa fa-search p-0"></i>
-        </button>
+        <div class="row justify-content-center mr-5">
+          <div class="col-4 m-0 mr-3">
+            <button type="button" class="btn btn-primary mt-3" (click)="openModalCrearAlumno(template)">
+              <i class="fa fa-plus p-0"></i>
+            </button>
+          </div>
+          <div class="col-4 m-0"> 
+            <button type="button" class="btn btn-primary mt-3">
+              <i class="fa fa-search p-0"></i>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
-    <!-- <hr class="col-12 style-two"> -->
+    <!-- <hr class="col-12 style-two"> -->  
     <table class="table table-striped">
       <thead>
         <tr>
@@ -49,6 +58,7 @@
           <th scope="col">Nombre</th>
           <th scope="col">Telefono</th>
           <th scope="col">Estado</th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
@@ -57,6 +67,11 @@
           <td>Florencia</td>
           <td>2616565656</td>
           <td>Pagado</td>
+          <td>
+            <i class="fa fa-info-circle mr-1" (click)="openModalInfo(templateInfo)"></i>
+            <i class="fa fa-pencil-square mr-1" (click)="openModalEdit(templateEdit)"></i>
+            <i class="fa fa-calendar-check-o" (click)="openModalHistorial(templateHistorial)"></i>
+          </td>
         </tr>
         <tr>
           <td>Jacob</td>
@@ -74,3 +89,164 @@
     </table>
   </div>
 </div>
+
+<ng-template #template>
+  <div class="modal-header mt-0">
+    <h4><small>Crear Alumno</small></h4>
+  </div>
+  <div class="modal-body rounded mt-2 mb-2">
+    <div class="input-group input-group-sm mb-2">
+      <input
+        type="text"
+        class="form-control input-sm"
+        aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-sm"
+        placeholder="Apellido"
+        autocomplete="off">
+    </div>
+    <div class="input-group input-group-sm mb-2">
+      <input
+        type="text"
+        class="form-control"
+        aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-sm"
+        placeholder="Nombre"
+        autocomplete="off">
+    </div>
+    <div class="input-group input-group-sm mb-2">
+      <input
+        type="text"
+        class="form-control"
+        aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-sm"
+        placeholder="Telefono">
+    </div>
+    <div class="input-group input-group-sm mb-2">
+      <input
+        type="text"
+        class="form-control"
+        aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-sm"
+        placeholder="Email">
+    </div>
+    <div class="input-group input-group-sm mb-2">
+      <input
+        type="text"
+        class="form-control"
+        aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-sm"
+        placeholder="DNI">
+    </div>
+    <div class="row justify-content-between">
+      <div class="col-6 mb-2">
+        <div class="input-group input-group-sm">
+          <select class="custom-select p-1" id="clase1">
+            <option class="letter" selected>Clase 1</option>
+            <option value="1">Clasico</option>
+            <option value="2">Zumba</option>
+            <option value="3">Mami q tu qiere</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="input-group input-group-sm">
+          <select class="custom-select m-0 p-1" id="frecuencia1">
+            <option class="letter" selected>Cantidad</option>
+            <option value="1">1 vez x semana</option>
+            <option value="2">2 veces x semana</option>
+            <option value="3">3 veces x semana</option>
+            <option value="4">4 veces x semana</option>
+            <option value="5">Pase libre</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-6 mb-2">
+        <div class="input-group input-group-sm my-0 py-0">
+          <select class="custom-select m- p-1" id="clase2">
+            <option class="letter" selected>Clase 2</option>
+            <option value="1">Clasico</option>
+            <option value="2">Zumba</option>
+            <option value="3">Mami q tu qiere</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="input-group input-group-sm my-0 py-0">
+          <select class="custom-select m-0 p-1" id="frecuencia2">
+            <option class="letter" selected>Cantidad</option>
+            <option value="1">1 vez x semana</option>
+            <option value="2">2 veces x semana</option>
+            <option value="3">3 veces x semana</option>
+            <option value="4">4 veces x semana</option>
+            <option value="5">Pase libre</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-6 mb-2">
+        <div class="input-group input-group-sm my-0 py-0">
+          <select class="custom-select m-0 p-1" id="clase3">
+            <option class="letter" selected>Clase 3</option>
+            <option value="1">Clasico</option>
+            <option value="2">Zumba</option>
+            <option value="3">Mami q tu qiere</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="input-group input-group-sm my-0 py-0">
+          <select class="custom-select m-0 p-1" id="frecuencia3">
+            <option class="letter" selected>Cantidad</option>
+            <option value="1">1 vez x semana</option>
+            <option value="2">2 veces x semana</option>
+            <option value="3">3 veces x semana</option>
+            <option value="4">4 veces x semana</option>
+            <option value="5">Pase libre</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="input-group">
+      <textarea class="form-control" aria-label="With textarea" placeholder="Datos extra"></textarea>
+    </div>
+    <div class="row justify-content-center mt-4">
+      <i class="fa fa-times-circle fa-3x fa-lg mr-3" style="color: red;" (click)="close()"></i>
+      <i class="fa fa-check-circle fa-3x fa-lg" style="color: rgb(34, 218, 34);"></i>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #templateInfo>
+  <div class="modal-header mt-0">
+    <h4><small>Información</small></h4>
+  </div>
+  <div class="modal-body rounded mt-2 mb-2">
+    infooooooo..
+    <div class="col align-self-end px-1">
+      <div class="form-group m-0">
+        <input
+          type="text"
+          readonly
+          placeholder="asdasd"
+          class="text-center badge-pill form-control form-control-xs">
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #templateEdit>
+  <div class="modal-header mt-0">
+    <h4><small>Información</small></h4>
+  </div>
+  <div class="modal-body rounded mt-2 mb-2">
+    infooooooo..
+  </div>
+</ng-template>
+
+<ng-template #templateHistorial>
+  <div class="modal-header mt-0">
+    <h4><small>Información</small></h4>
+  </div>
+  <div class="modal-body rounded mt-2 mb-2">
+    infooooooo..
+  </div>
+</ng-template>
