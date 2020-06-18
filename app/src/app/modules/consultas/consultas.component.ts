@@ -1,5 +1,7 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { AlumnosService } from 'src/app/services/alumnos/alumnos.service';
+import { CursosService } from 'src/app/services/cursos/cursos.service';
 
 @Component({
   selector: 'app-consultas',
@@ -8,12 +10,27 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 })
 export class ConsultasComponent implements OnInit {
   modalRef: BsModalRef;
+  page: number = 1;
+  alumnos: any;
+  cursos: any;
 
   constructor(
     private modalService: BsModalService,
+    public alumnosService: AlumnosService,
+    public cursosService: CursosService
   ) { }
 
   ngOnInit() {
+    this.alumnosService.getAlumnos()
+      .subscribe((alumnos: any) =>{
+        this.alumnos = alumnos
+        console.log(this.alumnos)
+      }, err => console.error(err));
+    this.cursosService.getAllCursos()
+      .subscribe((cursos: any) =>{
+        this.cursos = cursos
+        console.log(this.cursos)
+      }, err => console.error(err));
   }
 
   openModalCrearAlumno(template: TemplateRef<any>) {

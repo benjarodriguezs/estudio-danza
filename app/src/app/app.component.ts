@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'codeando por un baile';
+  private apiUrl = 'http://localhost:8080/api/'
 }

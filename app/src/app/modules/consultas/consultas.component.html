@@ -15,9 +15,7 @@
           </div>
           <select class="custom-select" id="inputClases">
             <option class="letter" selected>Todas</option>
-            <option value="1">Clasico</option>
-            <option value="2">Zumba</option>
-            <option value="3">Mami q tu qiere</option>
+              <option *ngFor="let curso of cursos; let i = index" value="i">{{curso.nombre}}</option>
           </select>
         </div>
       </div>
@@ -58,32 +56,37 @@
           <th scope="col">Nombre</th>
           <th scope="col">Telefono</th>
           <th scope="col">Estado</th>
+          <!-- <th scope="col">Acciones</th> -->
           <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Perez Mora</td>
-          <td>Florencia</td>
-          <td>2616565656</td>
-          <td>Pagado</td>
+        <tr *ngIf="!alumnos.length">
+          <th class="text-center" colspan="2">No se han encontrado resultados</th>
+        </tr>
+        <tr *ngFor="let alumno of alumnos; let i = index">
+          <td class="p-1">
+            <p class="text-smaller">
+              <small class="pl-2">{{alumno.apellido}}</small>
+            </p>
+          </td>
+          <td class="p-1">
+            <p class="text-smaller">
+              <small class="pl-2">{{alumno.nombre}}</small>
+            </p>
+          </td>
+          <!-- <td>{{alumno.apellido}}</td>
+          <td>{{alumno.nombre}}</td> -->
+
+          <td *ngIf="alumno.telefono">{{alumno.telefono}}</td>
+          <td *ngIf="!alumno.telefono" class="pl-5">-</td>
+          
+          <td>{{alumno.pagado}} </td>
           <td>
             <i class="fa fa-info-circle mr-1" (click)="openModalInfo(templateInfo)"></i>
             <i class="fa fa-pencil-square mr-1" (click)="openModalEdit(templateEdit)"></i>
             <i class="fa fa-calendar-check-o" (click)="openModalHistorial(templateHistorial)"></i>
           </td>
-        </tr>
-        <tr>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>2616565656</td>
-          <td>Pagado</td>
-        </tr>
-        <tr>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>2616565656</td>
-          <td>Pagado</td>
         </tr>
       </tbody>
     </table>
@@ -237,9 +240,18 @@
   <div class="modal-header mt-0">
     <h4><small>Información</small></h4>
   </div>
-  <div class="modal-body rounded mt-2 mb-2">
+  <!-- <div class="modal-body rounded mt-2 mb-2">
     infooooooo..
-  </div>
+  </div> -->
+  <!-- <ngb-pagination>
+    <ng-template ngbPaginationFirst>First</ng-template>
+    <ng-template ngbPaginationLast>Last</ng-template>
+    <ng-template ngbPaginationPrevious>Prev</ng-template>
+    <ng-template ngbPaginationNext>Next</ng-template>
+    <ng-template ngbPaginationEllipsis>...</ng-template>
+    <ng-template ngbPaginationNumber let-page>{{ page }}</ng-template>
+  </ngb-pagination> -->
+
 </ng-template>
 
 <ng-template #templateHistorial>

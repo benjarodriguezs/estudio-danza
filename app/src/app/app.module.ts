@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { AdminComponent } from './modules/admin/admin.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     FormsModule,
     TabsModule,
     ModalModule.forRoot(),
