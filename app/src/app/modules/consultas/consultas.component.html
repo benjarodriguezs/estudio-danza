@@ -2,11 +2,7 @@
   <div class="container-12 container-stats h-100">
     <div class="row justify-content-between mb-2">
       <div class="col-3  m-0 mt-3 ml-3">
-        <input
-          class="form-control m-0"
-          id="filtro"
-          placeholder="nombre, apellido, email  etc..."
-          type="text">
+        <input ng-model="filtro" placeholder="Busqueda">
       </div>
       <div class="col-4 m-0 px-4">
         <div class="input-group mt-3">
@@ -48,7 +44,6 @@
         </div>
       </div>
     </div>
-    <!-- <hr class="col-12 style-two"> -->  
     <table class="table table-striped">
       <thead>
         <tr>
@@ -60,11 +55,8 @@
           <th scope="col"></th>
         </tr>
       </thead>
-      <tbody>
-        <tr *ngIf="!alumnos.length">
-          <th class="text-center" colspan="2">No se han encontrado resultados</th>
-        </tr>
-        <tr *ngFor="let alumno of alumnos; let i = index">
+      <tbody class="">
+        <tr *ngFor="let alumno of alumnos | filter:filtro"  class="pb-n5 mb-n3">
           <td class="p-1">
             <p class="text-smaller">
               <small class="pl-2">{{alumno.apellido}}</small>
@@ -77,12 +69,22 @@
           </td>
           <!-- <td>{{alumno.apellido}}</td>
           <td>{{alumno.nombre}}</td> -->
-
-          <td *ngIf="alumno.telefono">{{alumno.telefono}}</td>
-          <td *ngIf="!alumno.telefono" class="pl-5">-</td>
-          
-          <td>{{alumno.pagado}} </td>
-          <td>
+          <td *ngIf="alumno.telefono" class="p-1">
+            <p class="text-smaller">
+              <small class="pl-2">{{alumno.telefono}}</small>
+            </p>
+          </td>
+          <td *ngIf="!alumno.telefono" class="p-1 pl-5">
+            <p class="text-smaller">
+              <small class="pl-2">-</small>
+            </p>
+          </td>
+          <td class="p-1">
+            <p class="text-smaller">
+              <small class="pl-2">{{alumno.pagado}}</small>
+            </p>
+          </td>
+          <td class="p-1">
             <i class="fa fa-info-circle mr-1" (click)="openModalInfo(templateInfo)"></i>
             <i class="fa fa-pencil-square mr-1" (click)="openModalEdit(templateEdit)"></i>
             <i class="fa fa-calendar-check-o" (click)="openModalHistorial(templateHistorial)"></i>

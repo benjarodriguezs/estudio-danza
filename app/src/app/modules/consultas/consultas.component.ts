@@ -42,7 +42,7 @@ export class ConsultasComponent implements OnInit {
   openModalInfo(templateInfo: TemplateRef<any>) {
     this.modalRef = this.modalService.show(templateInfo, { class: 'modal-sm my-0 modal-dialog-centered' });
   }
-  
+
   openModalEdit(templateEdit: TemplateRef<any>) {
     this.modalRef = this.modalService.show(templateEdit, { class: 'modal-sm my-0 modal-dialog-centered' });
   }

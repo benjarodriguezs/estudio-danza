@@ -1,12 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { ModalModule } from 'ngx-bootstrap/modal';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 // MODULES
 import { AppRoutingModule } from './app-routing.module';
 import { TabsModule } from './shared/tabs/tabs.module';
+import { FormsModule } from '@angular/forms';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 // COMPONENTS
 import { AppComponent } from './app.component';
@@ -29,6 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     FormsModule,
     TabsModule,
+    Ng2SearchPipeModule,
     ModalModule.forRoot(),
     FontAwesomeModule,
   ],
