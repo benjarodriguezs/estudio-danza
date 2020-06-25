@@ -2,7 +2,12 @@
   <div class="container-12 container-stats h-100">
     <div class="row justify-content-between mb-2">
       <div class="col-3  m-0 mt-3 ml-3">
-        <input ng-model="filtro" placeholder="Busqueda">
+        <div [(*ngModel)]="filtro" placeholder="Busqueda">
+        <div *ngFor="let alumno of alumnos | filter:filtro"  class="pb-n5 mb-n3">
+          <p class="text-smaller">
+            <small class="pl-2">{{alumno.apellido}}</small>
+          </p>
+        </div>
       </div>
       <div class="col-4 m-0 px-4">
         <div class="input-group mt-3">
@@ -67,8 +72,6 @@
               <small class="pl-2">{{alumno.nombre}}</small>
             </p>
           </td>
-          <!-- <td>{{alumno.apellido}}</td>
-          <td>{{alumno.nombre}}</td> -->
           <td *ngIf="alumno.telefono" class="p-1">
             <p class="text-smaller">
               <small class="pl-2">{{alumno.telefono}}</small>
