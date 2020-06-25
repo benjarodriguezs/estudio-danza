@@ -14,12 +14,14 @@ import { ConsultasComponent } from './consultas.component';
 //#region SERVICES
 import { AlumnosService } from 'src/app/services/alumnos/alumnos.service';
 import { CursosService } from 'src/app/services/cursos/cursos.service';
+import { FormsModule } from '@angular/forms';
 //#endregion
 
 @NgModule({
   declarations: [ConsultasComponent],
   imports: [
     CommonModule,
+    FormsModule,
     ConsultasRoutingModule,
     ModalModule.forRoot(),
     PaginationModule.forRoot(),

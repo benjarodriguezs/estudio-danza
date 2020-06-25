@@ -24,12 +24,10 @@ export class ConsultasComponent implements OnInit {
     this.alumnosService.getAlumnos()
       .subscribe((alumnos: any) =>{
         this.alumnos = alumnos
-        console.log(this.alumnos)
       }, err => console.error(err));
     this.cursosService.getAllCursos()
       .subscribe((cursos: any) =>{
         this.cursos = cursos
-        console.log(this.cursos)
       }, err => console.error(err));
   }
 
@@ -39,7 +37,9 @@ export class ConsultasComponent implements OnInit {
   });
   }
 
-  openModalInfo(templateInfo: TemplateRef<any>) {
+  openModalInfo(templateInfo: TemplateRef<any>, id) {
+    // this.alumnosService.getAlumnoById(id)
+    
     this.modalRef = this.modalService.show(templateInfo, { class: 'modal-sm my-0 modal-dialog-centered' });
   }
 

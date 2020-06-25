@@ -2,17 +2,12 @@
   <div class="container-12 container-stats h-100">
     <div class="row justify-content-between mb-2">
       <div class="col-3  m-0 mt-3 ml-3">
-        <div [(*ngModel)]="filtro" placeholder="Busqueda">
-        <div *ngFor="let alumno of alumnos | filter:filtro"  class="pb-n5 mb-n3">
-          <p class="text-smaller">
-            <small class="pl-2">{{alumno.apellido}}</small>
-          </p>
-        </div>
+        <input [(ngModel)]="filtro" placeholder="Busqueda">
       </div>
       <div class="col-4 m-0 px-4">
         <div class="input-group mt-3">
           <div class="input-group-prepend">
-            <small class="input-group-text" for="inputClases">Clases</small>
+            <small class="input-group-text input-group-sm" for="inputClases">Clases</small>
           </div>
           <select class="custom-select" id="inputClases">
             <option class="letter" selected>Todas</option>
